@@ -50,7 +50,7 @@ class Var:
 
     OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "af_mhakal")
 
-    FQDN: str = os.getenv("FQDN", "https://open-dragonfly-vonex-c2746ec1.koyeb.app") or BIND_ADDRESS
+    FQDN: str = os.getenv("FQDN", "open-dragonfly-vonex-c2746ec1.koyeb.app") or BIND_ADDRESS
     HAS_SSL: bool = str_to_bool(os.getenv("HAS_SSL", "False"))
     PROTOCOL: str = "https" if HAS_SSL else "http"
     PORT_SEGMENT: str = "" if NO_PORT else f":{PORT}"
