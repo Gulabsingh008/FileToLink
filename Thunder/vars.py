@@ -18,9 +18,9 @@ def str_to_int_set(val: str) -> Set[int]:
     return {int(x) for x in val.split() if x.isdigit()} if val else set()
 
 class Var:
-    API_ID: int = int(os.getenv("API_ID", ""))
-    API_HASH: str = os.getenv("API_HASH", "")
-    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "")
+    API_ID: int = int(os.getenv("API_ID", "26494161"))
+    API_HASH: str = os.getenv("API_HASH", "55da841f877d16a3a806169f3c5153d3")
+    BOT_TOKEN: str = os.getenv("BOT_TOKEN", "8191032269:AAGlLPYAJm0vFkwrhgbXKCXUWoWzQfR7VDg")
 
     if not all([API_ID, API_HASH, BOT_TOKEN]):
         logger.critical("Missing required Telegram API configuration")
@@ -31,7 +31,7 @@ class Var:
     WORKERS: int = int(os.getenv("WORKERS", "8"))
     TIMEOUT: int = int(os.getenv("TIMEOUT", "90"))
 
-    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "0"))
+    BIN_CHANNEL: int = int(os.getenv("BIN_CHANNEL", "-1002213359277"))
 
     if not BIN_CHANNEL:
         logger.critical("BIN_CHANNEL is required")
@@ -43,20 +43,20 @@ class Var:
     NO_PORT: bool = str_to_bool(os.getenv("NO_PORT", "True"))
     CACHE_SIZE: int = int(os.getenv("CACHE_SIZE", "100"))
 
-    OWNER_ID: List[int] = str_to_int_list(os.getenv("OWNER_ID", ""))
+    OWNER_ID: List[int] = str_to_int_list(os.getenv("OWNER_ID", "7170452349"))
 
     if not OWNER_ID:
         logger.warning("WARNING: OWNER_ID is empty. No user will have admin access.")
 
-    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "")
+    OWNER_USERNAME: str = os.getenv("OWNER_USERNAME", "af_mhakal")
 
-    FQDN: str = os.getenv("FQDN", "") or BIND_ADDRESS
+    FQDN: str = os.getenv("FQDN", "https://open-dragonfly-vonex-c2746ec1.koyeb.app") or BIND_ADDRESS
     HAS_SSL: bool = str_to_bool(os.getenv("HAS_SSL", "False"))
     PROTOCOL: str = "https" if HAS_SSL else "http"
     PORT_SEGMENT: str = "" if NO_PORT else f":{PORT}"
     URL: str = f"{PROTOCOL}://{FQDN}{PORT_SEGMENT}/"
 
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "mongodb+srv://hnyx:wywyw2@cluster0.9dxlslv.mongodb.net/?retryWrites=true&w=majority")
 
     if not DATABASE_URL:
         logger.critical("DATABASE_URL is required")
@@ -70,7 +70,7 @@ class Var:
 
     FORCE_CHANNEL_ID: Optional[int] = None
 
-    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "").strip()
+    force_channel_env = os.getenv("FORCE_CHANNEL_ID", "-1002213359277").strip()
 
     if force_channel_env:
         try:
